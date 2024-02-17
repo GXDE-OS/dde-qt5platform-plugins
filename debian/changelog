@@ -1,0 +1,98 @@
+dde-qt5platform-plugins (5.6.22) unstable; urgency=medium
+
+  * fix #7057
+
+ -- Mike Chen <chenke@deepin.org>  Thu, 25 Jan 2024 16:14:18 +0800
+
+dde-qt5platform-plugins (5.6.21) unstable; urgency=medium
+
+  * release 5.6.21
+
+ -- Mike Chen <chenke@deepin.org>  Tue, 16 Jan 2024 20:09:03 +0800
+
+dde-qt5platform-plugins (5.6.20) unstable; urgency=medium
+
+  * release 5.6.20
+
+ -- Deepin Packages Builder <packages@deepin.org>  Wed, 29 Nov 2023 10:01:18 +0800
+
+dde-qt5platform-plugins (5.6.16) unstable; urgency=medium
+
+  * fix: ensue ddeshell failed
+  * fix: typo ddeepin -> deepin
+  * chore: change qmake to cmake (#185)
+    Thanks to WangFei
+  * chore: Add header files about xcb from Qt6
+  * chore: Support Qt6
+  * chore: set the default install prefix of cmake
+  * chore: add the XcbQpaPrivate module in qt6 version
+  * fix: application crashed when moving window
+  * chore: resolve the warnings about deprecated-declarations
+  * chore: resolve the warning from cmake
+  * chore: Sync by https://github.com/linuxdeepin/.github/commit/559e91167d4919644f37bbcf123eb0651c1528ea(Influence: none)
+  * fix: build failed in archlinux
+  * chore: add unit test
+  * fix: undefine symbol
+  * fix: heap use after free
+  * fix: unit test failed (setWindowRadius)
+  * Revert "fix: unit test failed (setWindowRadius)"
+  * fix: call setWindowRadius failed
+  * chore: add unit test
+  * chore: link to target directly on unit test
+  * chore: Adapt to Qt 6.4.2
+  * fix: can't find qeventpoint_p.h in qt5
+  * chore: remove XcbQpaPrivate module on qt6
+  * chore: add dtkcommon depency
+
+ -- Deepin Packages Builder <packages@deepin.org>  Thu, 24 Aug 2023 15:47:39 +0800
+
+dde-qt5platform-plugins (5.6.12) unstable; urgency=medium
+
+  * Release 5.6.12
+  * FIX qt app server decoration not created in wayland
+
+ -- Deepin Packages Builder <packages@deepin.com>  Mon, 15 May 2023 11:32:41 +0800
+
+dde-qt5platform-plugins (5.6.11) unstable; urgency=medium
+
+  * Release 5.6.11
+  * FIX dtk#63
+  * FIX bug-195723 primary screen not right at startup
+
+ -- Deepin Packages Builder <packages@deepin.com>  Mon, 08 May 2023 13:57:30 +0800
+
+dde-qt5platform-plugins (5.6.9) unstable; urgency=medium
+
+  * Release 5.6.9
+
+ -- Deepin Packages Builder <packages@deepin.com>  Mon, 03 Apr 2023 10:24:44 +0800
+
+dde-qt5platform-plugins (5.6.5) unstable; urgency=medium
+
+  * Release 5.6.5
+
+ -- Deepin Packages Builder <packages@deepin.com>  Wed, 22 Feb 2023 14:17:33 +0800
+
+dde-qt5platform-plugins (5.6.3) unstable; urgency=medium
+
+  * Release 5.6.3
+
+ -- Deepin Packages Builder <packages@deepin.com>  Mon, 12 Dec 2022 17:28:22 +0800
+
+dde-qt5platform-plugins (5.0.71) unstable; urgency=medium
+
+  * Release 5.0.71
+
+ -- Deepin Packages Builder <packages@deepin.com>  Thu, 24 Nov 2022 13:34:12 +0800
+
+dde-qt5platform-plugins (5.0.0-1) unstable; urgency=medium
+
+  * Initial release
+
+ -- Deepin Packages Builder <packages@deepin.com>  Wed, 06 May 2020 11:59:02 +0800
+
+qt5dxcb-plugin (1.0.0-1) unstable; urgency=medium
+
+  * Initial release
+
+ -- Deepin Packages Builder <packages@deepin.com>  Tue, 08 Nov 2016 15:10:02 +0800
