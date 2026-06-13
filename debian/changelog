@@ -1,4 +1,4 @@
-dde-qt5platform-plugins (5.6.34) unstable; urgency=medium
+dde-qt5platform-plugins (1:5.6.34) unstable; urgency=medium
 
   * feat: support to change window effects(Bug: 244347)
   * fix: compl error in deepin
