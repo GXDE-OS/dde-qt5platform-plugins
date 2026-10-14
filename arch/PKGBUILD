@@ -1,0 +1,49 @@
+# Maintainer: CharOfString <root@charofstring.cc>
+pkgname=deepin-qt5platform-plugins-git
+pkgver=5.6.34
+pkgrel=1
+pkgdesc='Qt 5 platform plugins for DDE (xcb and Wayland)'
+arch=('x86_64' 'aarch64')
+url="https://github.com/GXDE-OS/dde-qt5platform-plugins"
+license=('LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only' 'LGPL-3.0-or-later' 'GPL-3.0-or-later'
+         'LicenseRef-Xorg-Xwd-License')
+depends=('qt5-base' 'qt5-x11extras' 'qt5-wayland' 'cairo' 'wayland' 'libxkbcommon' 'libx11' 'libxcb'
+         'libxi' 'xcb-util-wm' 'xcb-util-image' 'xcb-util-keysyms' 'xcb-util-renderutil' 'libgcc' 'libstdc++'
+         'glibc')
+makedepends=('git' 'cmake' 'ninja' 'pkgconf' 'qt5-tools' 'qt5-xcb-private-headers' 'dtkcommon-git' 'mtdev'
+             'libglvnd')
+# Debian 拆成 dde-qt5xcb-plugin 与 dde-qt5wayland-plugin，这里与 Arch 的 deepin-qt5platform-plugins 一样合并
+# Debian splits it into dde-qt5xcb-plugin and dde-qt5wayland-plugin; merged
+# here as in Arch's deepin-qt5platform-plugins.
+provides=("deepin-qt5platform-plugins=$pkgver")
+conflicts=('deepin-qt5platform-plugins')
+source=()
+sha512sums=()
+
+# 直接使用 PKGBUILD 所在的 git 仓库作为源码 ・ Build from the git checkout this PKGBUILD lives in.
+_srcroot() {
+  git -C "$startdir" rev-parse --show-toplevel
+}
+
+build() {
+  # 与 debian/rules 相同（Qt 5）；DTK_VERSION 的主版本决定 Qt 主版本
+  # Same as debian/rules (Qt 5); the major version of DTK_VERSION selects the Qt major.
+  cmake -B build -S "$(_srcroot)" -GNinja \
+    -DCMAKE_BUILD_TYPE=None \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DDTK_VERSION="$pkgver" \
+    -DQT_XCB_PRIVATE_HEADERS=/usr/include/qtxcb-private \
+    -DBUILD_TESTING=OFF
+  ninja -C build
+}
+
+package() {
+  DESTDIR="$pkgdir" ninja -C build install
+  # 插件写死装到 lib/qt5/plugins，Arch 的 Qt 5 插件目录是 lib/qt/plugins
+  # The plugins are hard-wired to lib/qt5/plugins; Arch's Qt 5 plugin directory is lib/qt/plugins.
+  install -d "$pkgdir/usr/lib/qt"
+  mv "$pkgdir/usr/lib/qt5/plugins" "$pkgdir/usr/lib/qt/plugins"
+  rmdir "$pkgdir/usr/lib/qt5"
+  install -Dm644 "$(_srcroot)/LICENSES/LicenseRef-Xorg-Xwd-License.txt" -t "$pkgdir/usr/share/licenses/$pkgname/"
+}
