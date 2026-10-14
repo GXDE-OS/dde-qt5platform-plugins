@@ -7,12 +7,13 @@ arch=('x86_64' 'aarch64')
 url="https://github.com/GXDE-OS/dde-qt5platform-plugins"
 license=('LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only' 'LGPL-3.0-or-later' 'GPL-3.0-or-later'
          'LicenseRef-Xorg-Xwd-License')
-depends=('qt5-base' 'qt5-x11extras' 'qt5-wayland' 'cairo' 'wayland' 'libxkbcommon' 'libx11' 'libxcb'
+# Wayland 外壳插件链接 KF5Wayland ・ The Wayland shell plugin links KF5Wayland.
+depends=('qt5-base' 'qt5-x11extras' 'qt5-wayland' 'kwayland5' 'cairo' 'wayland' 'libxkbcommon' 'libx11' 'libxcb'
          'libxi' 'xcb-util-wm' 'xcb-util-image' 'xcb-util-keysyms' 'xcb-util-renderutil' 'libgcc' 'libstdc++'
          'glibc')
 # xcb/linux.cmake 用 pkg-config 检查 sm、ice、dbus-1、xkbcommon-x11 等 ・ xcb/linux.cmake checks sm, ice, dbus-1, xkbcommon-x11 and more with pkg-config.
 makedepends=('git' 'cmake' 'ninja' 'pkgconf' 'qt5-tools' 'qt5-xcb-private-headers' 'dtkcommon-git' 'mtdev'
-             'libglvnd' 'libsm' 'libice' 'dbus' 'libxkbcommon-x11')
+             'libglvnd' 'libsm' 'libice' 'dbus' 'libxkbcommon-x11' 'extra-cmake-modules')
 # Debian 拆成 dde-qt5xcb-plugin 与 dde-qt5wayland-plugin，这里与 Arch 的 deepin-qt5platform-plugins 一样合并
 # Debian splits it into dde-qt5xcb-plugin and dde-qt5wayland-plugin; merged
 # here as in Arch's deepin-qt5platform-plugins.
